@@ -6,14 +6,14 @@ export const header = () =>{
 	return node
 }
 
-export const content = () =>{
+export const content = (gameBoard) =>{
 	const node = document.createElement('div');
 	node.id = 'content'
-	create_grid(node, 10);
+	create_grid(node, 10, gameBoard);
 	return node
 }
 
-function create_grid(container, n){
+const create_grid = (container, n, gameBoard) =>{
 	for(let i=0;i<n;i++){
 		const row_grid=document.createElement('div');
 		row_grid.classList.add('row');
@@ -21,11 +21,12 @@ function create_grid(container, n){
 		for(let j=0;j<n;j++){
 			const element=document.createElement('div');
 			element.classList.add('child');
-			element.x = i;
-			element.y = j;
+			element.x = j;
+			element.y = i;
 			row_grid.appendChild(element);
-			element.addEventListener('click', ()=>{
-				elementListener(i,j)
+			element.addEventListener('click', (e)=>{
+				let colour = elementListener(j,i, gameBoard);
+				e.target.style.background = colour;
 			});    
 		}
 	}
