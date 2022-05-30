@@ -3,8 +3,9 @@ import {ship} from './shipFactory'
 export const gameBoard = (dimensions) =>{
 
 	// contains ship objects with coordinates, the ship object and if it's horizontal or not
-	let ships_array = [];
-	let missed_attacks = [];
+	const ships_array = [];
+	const missed_attacks = [];
+	const hits = [];
 
 	// coords is short for coordinates which is an object having x and y values
 	// direction is a unit vector Ex: [0,1] or [1,0]
@@ -75,6 +76,7 @@ export const gameBoard = (dimensions) =>{
 				let y_value = ships_array[i].all_coords[j].y;
 				if (x_value == coords.x && y_value == coords.y){
 					ships_array[i].ship.hit(j);
+					hits.push(coords);
 					return true
 				}
 			}
@@ -118,5 +120,5 @@ export const gameBoard = (dimensions) =>{
 		return array
 	}
 
-	return {missed_attacks, receiveAttack, placeShip, placeShipsRandomly, areShipsGone}
+	return {hits, missed_attacks, receiveAttack, placeShip, placeShipsRandomly, areShipsGone}
 }
