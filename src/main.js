@@ -1,5 +1,9 @@
-import {player} from './factories/playerFactory'
+import {header, content, footer} from './page_content'
+import "./style.css";
 
-export const game = () =>{
-
-}
+const initialize = ( ()=>{
+	const body = document.body;
+	body.append( header() );
+	body.append( content() );
+	body.append( footer() );
+})();
