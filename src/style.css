@@ -6,6 +6,11 @@ body{
 
 #content{
 	display:flex;
+	gap: 8vh;
+}
+
+#gameBoard{
+	display:flex;
 	flex-direction:column;
 	height:70vh;
 	width:70vh;
@@ -21,4 +26,9 @@ body{
 .child{
 	flex:1;
 	border: 1px solid red;
+	cursor: pointer;
+}
+
+.disabled{
+	pointer-events: none;	
 }

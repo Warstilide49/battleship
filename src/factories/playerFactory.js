@@ -1,6 +1,6 @@
 import {gameBoard} from './gameBoardFactory'
 
-export const player= (name, dimensions) =>{
+export const player= (name, dimensions, turn=false) =>{
 
 	const myGameBoard = gameBoard(dimensions);
 

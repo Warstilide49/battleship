@@ -76,14 +76,22 @@ export const gameBoard = (dimensions) =>{
 				let y_value = ships_array[i].all_coords[j].y;
 				if (x_value == coords.x && y_value == coords.y){
 					ships_array[i].ship.hit(j);
-					hits.push(coords);
+					pushIntoArray(hits, coords);
 					return true
 				}
 			}
 		}
 
-		missed_attacks.push(coords);
+		pushIntoArray(missed_attacks, coords);
 		return false;
+	}
+
+	const pushIntoArray = (array, coords) =>{
+		for (let i=0; i<array.length; i++){
+			if (coords.x==array[i].x && coords.y==array[i].y)
+				return;
+		}
+		array.push(coords);
 	}
 
 	const areShipsGone = () =>{
