@@ -128,5 +128,5 @@ export const gameBoard = (dimensions) =>{
 		return array
 	}
 
-	return {hits, missed_attacks, receiveAttack, placeShip, placeShipsRandomly, areShipsGone}
+	return {dimensions, hits, missed_attacks, receiveAttack, placeShip, placeShipsRandomly, areShipsGone}
 }

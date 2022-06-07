@@ -18,7 +18,7 @@ export const content = (game) =>{
 const createGameBoard = (gameBoard) =>{
 	const node = document.createElement('div');
 	node.id = 'gameBoard'
-	create_grid(node, 10, gameBoard);
+	create_grid(node, gameBoard.dimensions, gameBoard);
 
 	let interval = setInterval(()=>{
 		update_grid(gameBoard, node);

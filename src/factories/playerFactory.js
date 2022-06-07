@@ -36,6 +36,12 @@ export const player= (name, dimensions, turn=false) =>{
 		// Write tests for this I am not so sure if itll work
 	}
 
+	const didPlayerWin = (enemyGameBoard) =>{
+		if (enemyGameBoard.areShipsGone()){
+			return true;
+		}
+		return false;
+	}
 
-	return{name, myGameBoard, attack, randomAttack, playedMoves}
+	return{name, myGameBoard, attack, randomAttack, playedMoves, didPlayerWin}
 }

@@ -1,12 +1,12 @@
 import {player} from './factories/playerFactory'
 
 export const game = () => {
-	const user = player("None", 10, true);
-	const ai = player("AI", 10);
+	let user = player("Player", 10, true);
+	let ai = player("AI", 10);
 
-	user.myGameBoard.placeShip("trial", {x: 7, y:5}, 5, [0,1]);
-	user.myGameBoard.placeShip("bruh", {x:5,y:4}, 5, [0,1])
-	user.myGameBoard.placeShip("sdfs", {x:1,y:2}, 5, [1,0])
+	user.myGameBoard.placeShip("trial", {x: 7, y:5}, 1, [0,1]);
+
+	ai.myGameBoard.placeShipsRandomly();
 
 	const getTurn = () =>{
 		if(user.turn==true){
@@ -28,5 +28,15 @@ export const game = () => {
 		}
 	}
 
-	return {user, ai, getTurn, changeTurn}
+	const shouldEnd = () =>{
+		if( user.didPlayerWin(ai.myGameBoard) ){
+			return user.name
+		}
+		else if( ai.didPlayerWin(user.myGameBoard) ){
+			return ai.name
+		}
+		return false
+	} 
+
+	return {user, ai, getTurn, changeTurn, shouldEnd}
 }
