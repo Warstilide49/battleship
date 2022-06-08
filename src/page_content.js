@@ -9,39 +9,58 @@ export const header = () =>{
 export const content = (game) =>{
 	const node = document.createElement('div');
 	node.id = 'content'
-	node.append(createGameBoard(game.user.myGameBoard))
-	node.append(createGameBoard(game.ai.myGameBoard))
+	node.append(createGameBoard(game.user))
+	node.append(createGameBoard(game.ai))
+
+	// Find a way for ai to attack after player(through turns or interval)
+	// game.ai.randomAttack(game.user.myGameBoard);
+
+	let aiPlays = setInterval(()=>{
+		if(game.getTurn() == "AI"){
+			game.ai.randomAttack(game.user.myGameBoard);
+			game.ai.turn = false;
+		}
+	}, 1000/15)
 
 	return node
 }
 
-const createGameBoard = (gameBoard) =>{
+const createGameBoard = (player) =>{
 	const node = document.createElement('div');
 	node.id = 'gameBoard'
-	create_grid(node, gameBoard.dimensions, gameBoard);
+
+	create_grid(node, player.myGameBoard.dimensions, player);
 
 	let interval = setInterval(()=>{
-		update_grid(gameBoard, node);
+		update_grid( player.myGameBoard, node);
 	}, 1000/30)
 
 	return node
 }
 
-const create_grid = (container, n, gameBoard) =>{
+const create_grid = (container, n, player) =>{
 	for(let i=0;i<n;i++){
+
 		const row_grid=document.createElement('div');
 		row_grid.classList.add('row');
 		row_grid.y = i;
 		container.append(row_grid);
+
 		for(let j=0;j<n;j++){
 			const element=document.createElement('div');
 			element.classList.add('child');
 			element.x = j;
 			element.y = i;
 			row_grid.append(element);
+			
+			// For player's gameboard
+			if (player.name!='AI'){
+				element.classList.add('disabled')
+				continue
+			}
+
 			element.addEventListener('click', (e)=>{
-				let colour = elementListener(j,i, gameBoard);
-				e.target.style.background = colour;
+				elementListener(j,i, player);
 				e.target.classList.add('disabled')
 			});    
 		}

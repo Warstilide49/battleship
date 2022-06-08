@@ -43,5 +43,5 @@ export const player= (name, dimensions, turn=false) =>{
 		return false;
 	}
 
-	return{name, myGameBoard, attack, randomAttack, playedMoves, didPlayerWin}
+	return{name, turn, myGameBoard, attack, randomAttack, playedMoves, didPlayerWin}
 }

@@ -1,5 +1,5 @@
-export const elementListener = (x, y, gameBoard) => {
+export const elementListener = (x, y, ai) => {
 	let coords = { x, y }
-	gameBoard.receiveAttack(coords)
-	
+	ai.myGameBoard.receiveAttack(coords)
+	ai.turn = true
 };

@@ -9,11 +9,11 @@ export const game = () => {
 	ai.myGameBoard.placeShipsRandomly();
 
 	const getTurn = () =>{
-		if(user.turn==true){
-			return user
+		if(ai.turn==false){
+			return "user"
 		}
 		else{
-			return ai
+			return "AI"
 		}
 	}
 

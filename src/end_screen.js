@@ -1,5 +1,3 @@
-import {initialize} from './main'
-
 export const showEndScreen = (body, winner, game) =>{
 	let {container, modal} = createModal(body, 50, 50, 'end_screen')
 	modal.innerHTML = `<p><strong>${winner} won!</strong></p>
@@ -7,9 +5,7 @@ export const showEndScreen = (body, winner, game) =>{
 
 	const restartButton = modal.querySelector('button');
 	restartButton.addEventListener('click', ()=>{
-		container.remove()
-		body.textContent='';
-		initialize()
+		window.location.reload()
 	})
 };
 

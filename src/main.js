@@ -3,7 +3,7 @@ import {game} from './game'
 import {showEndScreen} from './end_screen'
 import "./style.css";
 
-export const initialize = ( ()=>{
+const initialize = ( ()=>{
 
 	const mainGame = game();
 
