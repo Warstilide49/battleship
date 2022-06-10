@@ -1,6 +1,6 @@
 import {header, content, footer} from './page_content'
 import {game} from './game'
-import {showEndScreen} from './end_screen'
+import {showStartScreen, showEndScreen} from './start_end_screens'
 import "./style.css";
 
 const initialize = ( ()=>{
@@ -12,11 +12,13 @@ const initialize = ( ()=>{
 	body.append( content(mainGame) )
 	body.append( footer() );
 
+	showStartScreen();
+
 	const checkEnding = setInterval(()=>{
 		let winner = mainGame.shouldEnd();
 		if (winner!= false){
 			clearInterval(checkEnding);
-			showEndScreen(body, winner, mainGame)
+			showEndScreen(winner, mainGame)
 		}
 	}, 1000/30)
 

@@ -128,5 +128,9 @@ export const gameBoard = (dimensions) =>{
 		return array
 	}
 
-	return {dimensions, hits, missed_attacks, receiveAttack, placeShip, placeShipsRandomly, areShipsGone}
+	const getNumberOfShips = () =>{
+		return ships_array.length;
+	}
+
+	return {dimensions, getNumberOfShips, hits, missed_attacks, receiveAttack, placeShip, placeShipsRandomly, areShipsGone}
 }
