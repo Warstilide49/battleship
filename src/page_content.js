@@ -38,7 +38,7 @@ const createGameBoard = (player) =>{
 	return node
 }
 
-const create_grid = (container, n, player) =>{
+export const create_grid = (container, n, player) =>{
 	for(let i=0;i<n;i++){
 
 		const row_grid=document.createElement('div');
@@ -53,16 +53,20 @@ const create_grid = (container, n, player) =>{
 			element.y = i;
 			row_grid.append(element);
 			
-			// For player's gameboard
-			if (player.name!='AI'){
-				element.classList.add('disabled')
+			if (player && player.name=='AI'){
+				element.addEventListener('click', (e)=>{
+					elementListener(j,i, player);
+					e.target.classList.add('disabled')
+				});  
+			}
+			else if (player && player.name!='AI'){
+				element.classList.add('disabled');
+			}
+			else{
 				continue
 			}
 
-			element.addEventListener('click', (e)=>{
-				elementListener(j,i, player);
-				e.target.classList.add('disabled')
-			});    
+			  
 		}
 	}
 }

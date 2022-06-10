@@ -18,6 +18,11 @@ body{
 	padding:0;
 }
 
+#gameBoard.preGame{
+	height: 40vh;
+	width: 40vh;
+}
+
 .row{
 	display:flex;
 	flex:1;
@@ -31,6 +36,18 @@ body{
 
 .disabled{
 	pointer-events: none;	
+}
+
+#start_screen_content{
+	display: flex;
+	gap: 20px;
+}
+
+#sidebar{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
 }
 
 .modal_bg{
