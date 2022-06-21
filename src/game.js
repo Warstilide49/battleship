@@ -5,7 +5,7 @@ export const game = () => {
 	let ai = player("AI", 10);
 
 	user.myGameBoard.placeShip("trial", {x: 7, y:5}, 1, [0,1]);
-
+	
 	ai.myGameBoard.placeShipsRandomly();
 
 	const getTurn = () =>{

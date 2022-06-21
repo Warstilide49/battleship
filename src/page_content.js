@@ -62,7 +62,7 @@ export const create_grid = (container, n, player) =>{
 			else if (player && player.name!='AI'){
 				element.classList.add('disabled');
 			}
-			else{
+			else{		// This case is for the gameboard that appears at the start
 				continue
 			}
 

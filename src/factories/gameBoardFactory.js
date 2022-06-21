@@ -14,10 +14,10 @@ export const gameBoard = (dimensions) =>{
 		//testOneSpaceAway(); Maybe wont do this lol
 		let all_coords = getAllPoints(coords, length, direction);
 		if(checkOverload(all_coords))
-			return false;
+			throw Error('overloading');
 
 		if(ships_array.length>=5)
-			return false;
+			throw Error('maximum of 5 ships allowed')
 
 		ships_array.push({
 			all_coords,

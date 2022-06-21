@@ -17,18 +17,12 @@ test.failing('cannot place wrong dimensional ships', ()=>{
 	example.placeShip("test", coords, 1, [0,1]);
 });
 
-test('ships cannot be overloaded', ()=>{
+test.failing('ships cannot be overloaded', ()=>{
 	let coords = {x:9, y:9};
 
 	// Trying every single way of overloading
 	example.placeShip("test", coords, 1, [0,1]);
 	example.placeShip("test", {x:8, y:9}, 2, [1,0]);
-	example.placeShip("test", {x:9, y:8}, 2, [0,1]);
-	example.placeShip("test", {x:5, y:9}, 5, [1,0]);
-
-
-	example.receiveAttack(coords);
-	expect(example.areShipsGone()).toBe(true);
 })
 
 test('ships placed randomly works', ()=>{
