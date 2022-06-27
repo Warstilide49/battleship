@@ -1,19 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;800&family=Poppins:wght@300&display=swap');
+
 body{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: space-between;
+	gap: 1vh;
+	margin: 0;
+	min-height: 100vh;
+	font-family: 'Poppins', sans-serif;
+	background-color: #efe9f8;
+	background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23818ff0' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 #content{
 	display:flex;
 	gap: 8vh;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 #gameBoard{
 	display:flex;
 	flex-direction:column;
-	height:70vh;
-	width:70vh;
+	height:40vh;
+	width:40vh;
 	border: 2px solid black;
 	padding:0;
 }
@@ -30,7 +41,7 @@ body{
 
 .child{
 	flex:1;
-	border: 1px solid red;
+	border: 1px solid black;
 	cursor: pointer;
 }
 
@@ -39,9 +50,12 @@ body{
 }
 
 #start_screen_content{
+	font-family: 'Poppins', sans-serif;
 	display: flex;
 	gap: 20px;
 	align-items: center;
+	min-width: 28vw;
+	min-height: 50vh;
 }
 
 #sidebar{
@@ -74,7 +88,7 @@ body{
 }
 
 .modal{
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	font-size: 3.5vh;
 	background-color:white;
 	border-radius: 2vh;
@@ -88,7 +102,11 @@ body{
 
 .modal button{
 	border: 1px solid black;
-	border-radius: 2px;
+	border-radius: 10px;
 	padding: 4px;
-	font-size: 70%;
+	font-size: 65%;
 } 
+
+footer{
+	font-size: 3vh;
+}

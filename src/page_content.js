@@ -81,17 +81,17 @@ const update_grid = (gameBoard, playerName, node) =>{
 		for(let i=0; i<ships.length; i++){
 			const all_coords = ships[i].all_coords
 			for(let j=0; j<all_coords.length; j++){
-				node.children[all_coords[j].y].children[all_coords[j].x].style.background = 'blue'		
+				node.children[all_coords[j].y].children[all_coords[j].x].style.background = 'rgba(74,74,74,0.5)'		
 			}
 		}
 	}
 
 	for(let i=0; i<hits.length; i++){
-		node.children[hits[i].y].children[hits[i].x].style.background = 'red'
+		node.children[hits[i].y].children[hits[i].x].style.background = 'rgba(200,10,10,0.9)'
 	}
 
 	for(let i=0; i<missed_attacks.length; i++){
-		node.children[missed_attacks[i].y].children[missed_attacks[i].x].style.background = 'green'
+		node.children[missed_attacks[i].y].children[missed_attacks[i].x].style.background = 'rgba(20,200,10,0.8)'
 	}
 }
 

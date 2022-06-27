@@ -23,7 +23,7 @@ export const showStartScreen = (gameBoard, game) =>{
 
 	const sidebar = modal.querySelector('#sidebar')
 	sidebar.innerHTML = 
-		`<h6>${names[0]}</h6>
+		`<h6 style="margin: 0;">${names[0]}</h6>
 		<div id='ship' draggable='true'></div>
 		<button>Rotate</button>`
 
@@ -79,7 +79,7 @@ const showInBoard = (gameBoardDOM, gameBoard) =>{
 	for(let i=0; i<ships.length; i++){
 		const all_coords = ships[i].all_coords
 		for(let j=0; j<all_coords.length; j++){
-			gameBoardDOM.children[all_coords[j].y].children[all_coords[j].x].style.background = 'red'		
+			gameBoardDOM.children[all_coords[j].y].children[all_coords[j].x].style.background = 'rgba(74,74,74,0.5)'		
 		}
 	}
 }
