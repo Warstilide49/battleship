@@ -75,23 +75,23 @@ const update_grid = (gameBoard, playerName, node) =>{
 	const hits = gameBoard.hits;
 	const missed_attacks = gameBoard.missed_attacks;
 
+	// If its the player's gameBoard it will show the ship blocks as blue
+	const ships = gameBoard.ships_array
+	if(playerName=='Player'){
+		for(let i=0; i<ships.length; i++){
+			const all_coords = ships[i].all_coords
+			for(let j=0; j<all_coords.length; j++){
+				node.children[all_coords[j].y].children[all_coords[j].x].style.background = 'blue'		
+			}
+		}
+	}
+
 	for(let i=0; i<hits.length; i++){
 		node.children[hits[i].y].children[hits[i].x].style.background = 'red'
 	}
 
 	for(let i=0; i<missed_attacks.length; i++){
 		node.children[missed_attacks[i].y].children[missed_attacks[i].x].style.background = 'green'
-	}
-
-	if(playerName!='Player')
-		return; 
-	
-	const ships = gameBoard.ships_array
-	for(let i=0; i<ships.length; i++){
-		const all_coords = ships[i].all_coords
-		for(let j=0; j<all_coords.length; j++){
-			node.children[all_coords[j].y].children[all_coords[j].x].style.background = 'blue'		
-		}
 	}
 }
 
