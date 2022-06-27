@@ -6,15 +6,16 @@ Check live: [here](https://warstilide49.github.io/battleship/).
 
 1. Display no. of ships that are down for both sides.
 2. AI should hit adjacent blocks on getting a hit.
+3. Ships to be placed a min distance of 1 block from each other. 
 3. Sounds
 4. Playable on phone.
 5. 2 player mode
 
 ## Tech Used
 
-HTML, CSS, JS
-Webpack (for building)
-Jest (for testing)
+- HTML, CSS, JS
+- Webpack (for building)
+- Jest (for testing)
 
 ## Credits
 
