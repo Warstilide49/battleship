@@ -2,7 +2,7 @@ import {ship} from './shipFactory'
 
 export const gameBoard = (dimensions) =>{
 
-	// contains ship objects with coordinates, the ship object and if it's horizontal or not
+	// contains ship objects with coordinates and the ship object 
 	const ships_array = [];
 	const missed_attacks = [];
 	const hits = [];
@@ -128,9 +128,5 @@ export const gameBoard = (dimensions) =>{
 		return array
 	}
 
-	const getNumberOfShips = () =>{
-		return ships_array.length;
-	}
-
-	return {dimensions, getNumberOfShips, hits, missed_attacks, receiveAttack, placeShip, placeShipsRandomly, areShipsGone}
+	return { ships_array, dimensions, hits, missed_attacks, receiveAttack, placeShip, placeShipsRandomly, areShipsGone}
 }

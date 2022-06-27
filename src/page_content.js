@@ -32,7 +32,7 @@ const createGameBoard = (player) =>{
 	create_grid(node, player.myGameBoard.dimensions, player);
 
 	let interval = setInterval(()=>{
-		update_grid( player.myGameBoard, node);
+		update_grid( player.myGameBoard, player.name, node);
 	}, 1000/30)
 
 	return node
@@ -71,7 +71,7 @@ export const create_grid = (container, n, player) =>{
 	}
 }
 
-const update_grid = (gameBoard, node) =>{
+const update_grid = (gameBoard, playerName, node) =>{
 	const hits = gameBoard.hits;
 	const missed_attacks = gameBoard.missed_attacks;
 
@@ -81,6 +81,17 @@ const update_grid = (gameBoard, node) =>{
 
 	for(let i=0; i<missed_attacks.length; i++){
 		node.children[missed_attacks[i].y].children[missed_attacks[i].x].style.background = 'green'
+	}
+
+	if(playerName!='Player')
+		return; 
+	
+	const ships = gameBoard.ships_array
+	for(let i=0; i<ships.length; i++){
+		const all_coords = ships[i].all_coords
+		for(let j=0; j<all_coords.length; j++){
+			node.children[all_coords[j].y].children[all_coords[j].x].style.background = 'blue'		
+		}
 	}
 }
 

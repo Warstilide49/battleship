@@ -12,11 +12,11 @@ const initialize = ( ()=>{
 	body.append( content(mainGame) )
 	body.append( footer() );
 
-	showStartScreen(mainGame.user.myGameBoard);
+	showStartScreen(mainGame.user.myGameBoard, mainGame);
 
 	const checkEnding = setInterval(()=>{
 		let winner = mainGame.shouldEnd();
-		if (winner!= false){
+		if (winner!= false && mainGame.shouldStart){
 			clearInterval(checkEnding);
 			showEndScreen(winner, mainGame)
 		}

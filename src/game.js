@@ -4,7 +4,7 @@ export const game = () => {
 	let user = player("Player", 10, true);
 	let ai = player("AI", 10);
 
-	user.myGameBoard.placeShip("trial", {x: 7, y:5}, 1, [0,1]);
+	let shouldStart = false;
 	
 	ai.myGameBoard.placeShipsRandomly();
 
@@ -38,5 +38,5 @@ export const game = () => {
 		return false
 	} 
 
-	return {user, ai, getTurn, changeTurn, shouldEnd}
+	return {user, ai, getTurn, changeTurn, shouldStart, shouldEnd}
 }
